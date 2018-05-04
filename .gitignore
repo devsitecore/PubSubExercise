@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Source/PubSubSample.Common/bin
+/Source/PubSubSample.Foundation/bin
+/Source/PubSubSample.Publisher/bin
+/Source/PubSubSample.PubSubServer/bin
+/Source/PubSubSample.Subscriber/bin
+/Source/PubSubSample.Tests/bin
+/Source/PubSubSample.Common/obj
+/Source/PubSubSample.Foundation/obj
+/Source/PubSubSample.Publisher/obj
+/Source/PubSubSample.PubSubServer/obj
+/Source/PubSubSample.Subscriber/obj
+/Source/PubSubSample.Tests/obj
+/Source/packages
+
+*.suo
