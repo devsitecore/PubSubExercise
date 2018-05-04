@@ -16,7 +16,7 @@ namespace PubSubSample.Subscriber
     /// <summary>
     /// Subscriber
     /// </summary>
-    public partial class Subscriber : Form, IPublishing, ISubscription
+    public partial class Subscriber : Form, ISubscription
     {
         #region "Private Members"
 
@@ -86,20 +86,16 @@ namespace PubSubSample.Subscriber
         }
         #endregion
 
-        #region "IPublishing Members"
+        #region "ISubscription Members"
 
         /// <summary>
-        /// Publishes the specified e.
+        /// Receive message
         /// </summary>
-        /// <param name="e">The e.</param>
-        /// <param name="topicName">Name of the topic.</param>
-        public void Publish(PubSubMessage e, string topicName)
+        /// <param name="pubSubMessage">pubSubMessage</param>
+        public void Receive(PubSubMessage pubSubMessage)
         {
-            this.AddNewMessageToList(e, topicName);
+            this.AddNewMessageToList(pubSubMessage);
         }
-        #endregion
-
-        #region "ISubscription Members"
 
         /// <summary>
         /// Subscribes the specified topic name.
@@ -143,8 +139,7 @@ namespace PubSubSample.Subscriber
         /// Adds the new message to list.
         /// </summary>
         /// <param name="message">The message.</param>
-        /// <param name="topic">The topic.</param>
-        private void AddNewMessageToList(PubSubMessage message, string topic = "")
+        private void AddNewMessageToList(PubSubMessage message)
         {
             if (message != null)
             {

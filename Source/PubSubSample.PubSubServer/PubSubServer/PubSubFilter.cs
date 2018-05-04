@@ -14,7 +14,7 @@ namespace PubSubSample.PubSubServer
     public class PubSubFilter : IPubSubFilter
     {
         #region "Private Members"
-        private Dictionary<string, List<IPublishing>> subscribersList = new Dictionary<string, List<IPublishing>>();
+        private Dictionary<string, List<ISubscription>> subscribersList = new Dictionary<string, List<ISubscription>>();
         #endregion
 
         #region "Private Properties"
@@ -25,7 +25,7 @@ namespace PubSubSample.PubSubServer
         /// <value>
         /// The subscribers list.
         /// </value>
-        private Dictionary<string, List<IPublishing>> SubscribersList
+        private Dictionary<string, List<ISubscription>> SubscribersList
         {
             get
             {
@@ -54,7 +54,7 @@ namespace PubSubSample.PubSubServer
                 {
                     try
                     {
-                        subscriber.Publish(e, topic);
+                        subscriber.Receive(e);
                     }
                     catch
                     {
@@ -68,7 +68,7 @@ namespace PubSubSample.PubSubServer
         /// </summary>
         /// <param name="topic">The topic.</param>
         /// <param name="subscriberCallbackReference">The subscriber callback reference.</param>
-        public void AddSubscriber(string topic, IPublishing subscriberCallbackReference)
+        public void AddSubscriber(string topic, ISubscription subscriberCallbackReference)
         {
             lock (typeof(PubSubFilter))
             {
@@ -81,7 +81,7 @@ namespace PubSubSample.PubSubServer
                 }
                 else
                 {
-                    List<IPublishing> newSubscribersList = new List<IPublishing>();
+                    var newSubscribersList = new List<ISubscription>();
                     newSubscribersList.Add(subscriberCallbackReference);
                     this.SubscribersList.Add(topic, newSubscribersList);
                 }
@@ -93,7 +93,7 @@ namespace PubSubSample.PubSubServer
         /// </summary>
         /// <param name="topic">The topic.</param>
         /// <param name="subscriberCallbackReference">The subscriber callback reference.</param>
-        public void RemoveSubscriber(string topic, IPublishing subscriberCallbackReference)
+        public void RemoveSubscriber(string topic, ISubscription subscriberCallbackReference)
         {
             lock (typeof(PubSubFilter))
             {
@@ -115,7 +115,7 @@ namespace PubSubSample.PubSubServer
         /// </summary>
         /// <param name="topic">The topic.</param>
         /// <returns>List of subscribers</returns>
-        private List<IPublishing> GetSubscribers(string topic)
+        private List<ISubscription> GetSubscribers(string topic)
         {
             lock (typeof(PubSubFilter))
             {

@@ -10,9 +10,16 @@ namespace PubSubSample.Foundation.Contracts
     /// <summary>
     /// ISubscription
     /// </summary>
-    [ServiceContract(CallbackContract = typeof(IPublishing))]
+    [ServiceContract(CallbackContract = typeof(ISubscription))]
     public interface ISubscription
     {
+        /// <summary>
+        /// Receive message
+        /// </summary>
+        /// <param name="pubSubMessage">pubSubMessage</param>
+        [OperationContract]
+        void Receive(PubSubMessage pubSubMessage);
+
         /// <summary>
         /// Subscribes the specified topic name.
         /// </summary>

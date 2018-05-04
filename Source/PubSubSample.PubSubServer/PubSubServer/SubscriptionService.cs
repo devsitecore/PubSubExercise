@@ -4,6 +4,7 @@
 
 namespace PubSubSample.PubSubServer
 {
+    using System;
     using System.ServiceModel;
     using Common.Extensions;
     using Common.Unity;
@@ -20,25 +21,31 @@ namespace PubSubSample.PubSubServer
         }
         #endregion
 
+        #region "Private Properties"
         private IPubSubFilter PubSubFilter { get; set; }
+        #endregion
 
         #region ISubscription Members
         public void Subscribe(string topic)
         {
-            var subscriber = OperationContext.Current.GetCallbackChannel<IPublishing>();
+            var subscriber = OperationContext.Current.GetCallbackChannel<ISubscription>();
             this.PubSubFilter.AddSubscriber(topic, subscriber);
         }
 
         public void UnSubscribe(string topic)
         {
-            var subscriber = OperationContext.Current.GetCallbackChannel<IPublishing>();
+            var subscriber = OperationContext.Current.GetCallbackChannel<ISubscription>();
             this.PubSubFilter.RemoveSubscriber(topic, subscriber);
         }
 
         public void Notify(PubSubMessage message)
         {
-            // IPublishing subscriber = OperationContext.Current.GetCallbackChannel<IPublishing>();
-            // Filter.RemoveSubscriber(topicName, subscriber);
+            throw new NotImplementedException();
+        }
+
+        public void Receive(PubSubMessage pubSubMessage)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }
