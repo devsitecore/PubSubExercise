@@ -29,3 +29,5 @@
 /.vs
 /Source/PubSubSample.PubSubServer.Console/bin/Debug
 /Source/PubSubSample.PubSubServer.Console/obj/Debug
+/Source/PubSubSample.PubSubServer.Console/bin/Release
+/Source/PubSubSample.PubSubServer.Console/obj/Release
