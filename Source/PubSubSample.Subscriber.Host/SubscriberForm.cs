@@ -36,7 +36,7 @@ namespace PubSubSample.Subscriber
 
             this.InitializeComponent();
             this.InitializeFormState();
-            this.CreateProxy();
+            this.CreateChannel();
         }
         #endregion
 
@@ -162,9 +162,9 @@ namespace PubSubSample.Subscriber
         }
 
         /// <summary>
-        /// Creates the proxy.
+        /// Creates the channel.
         /// </summary>
-        private void CreateProxy()
+        private void CreateChannel()
         {
             var subEndPoint = ConfigurationManager.AppSettings["SubEndpointAddress"];
             var callbackInstance = this;
