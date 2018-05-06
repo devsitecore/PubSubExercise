@@ -94,9 +94,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="stylecop.json" />
-    <None Include="stylecop1.json" />
-    <None Include="stylecop2.json" />
-    <None Include="stylecop3.json" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.0-beta006\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
