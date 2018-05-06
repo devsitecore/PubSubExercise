@@ -5,8 +5,7 @@
 namespace PubSubSample.PubSubServer
 {
     using System.ServiceModel;
-    using Common.Extensions;
-    using Common.Unity;
+    using Core.Base;
     using Foundation.Contracts;
     using Foundation.DataContracts;
 
@@ -14,21 +13,24 @@ namespace PubSubSample.PubSubServer
     /// Publishing
     /// </summary>
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
-    public class PublishingService : IPublishing
+    public class PublishingService : BaseService, IPublishing
     {
         #region "Constructor"
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PublishingService"/> class.
         /// </summary>
+        /// <param name="pubSubFilter">PubSubFilter</param>
+        public PublishingService(IPubSubFilter pubSubFilter = null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PublishingService"/> class.
+        /// </summary>
         public PublishingService()
         {
-            this.PubSubFilter = DependencyInjection.Instance().Container.Resolve<IPubSubFilter>();
         }
-        #endregion
-
-        #region Private Properties
-        private IPubSubFilter PubSubFilter { get; set; }
         #endregion
 
         #region IPublishing Members
