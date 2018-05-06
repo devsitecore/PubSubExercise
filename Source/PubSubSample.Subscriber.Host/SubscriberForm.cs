@@ -126,10 +126,10 @@ namespace PubSubSample.Subscriber
         /// <summary>
         /// Notifies the specified e.
         /// </summary>
-        /// <param name="e">The e.</param>
-        public void Notify(PubSubMessage e)
+        /// <param name="message">The message.</param>
+        public void Notify(PubSubMessage message)
         {
-            this.AddNewMessageToList(e);
+            this.AddNewMessageToList(message);
         }
         #endregion
 

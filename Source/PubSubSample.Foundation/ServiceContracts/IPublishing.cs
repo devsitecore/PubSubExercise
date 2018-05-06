@@ -14,6 +14,6 @@ namespace PubSubSample.Foundation.Contracts
     public interface IPublishing
     {
         [OperationContract(IsOneWay = true)]
-        void Publish(PubSubMessage e, string topicName);
+        void Publish(PubSubMessage message, string topicName);
     }
 }

@@ -32,9 +32,15 @@ namespace PubSubSample.PubSubServer
         #endregion
 
         #region IPublishing Members
-        public void Publish(PubSubMessage e, string topic)
+
+        /// <summary>
+        /// Publish Message for a topic
+        /// </summary>
+        /// <param name="message">Message</param>
+        /// <param name="topic">Topic</param>
+        public void Publish(PubSubMessage message, string topic)
         {
-            this.PubSubFilter.Publish(e, topic);
+            this.PubSubFilter.Publish(message, topic);
         }
         #endregion
     }

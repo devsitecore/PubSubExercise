@@ -56,9 +56,9 @@ namespace PubSubSample.PubSubServer
         /// <summary>
         /// Publishes the specified e.
         /// </summary>
-        /// <param name="e">The e.</param>
+        /// <param name="message">The message.</param>
         /// <param name="topic">The topic.</param>
-        public void Publish(PubSubMessage e, string topic)
+        public void Publish(PubSubMessage message, string topic)
         {
             this.proxyManager.NotifyHost(string.Format("New message is published for the topic {0}.", topic));
 
@@ -70,7 +70,7 @@ namespace PubSubSample.PubSubServer
                 {
                     try
                     {
-                        subscriber.Receive(e);
+                        subscriber.Receive(message);
                     }
                     catch
                     {

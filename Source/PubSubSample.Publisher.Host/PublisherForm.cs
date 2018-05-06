@@ -132,11 +132,11 @@ namespace PubSubSample.Publisher
         /// <summary>
         /// Publishes the specified e.
         /// </summary>
-        /// <param name="e">The e.</param>
+        /// <param name="message">The message.</param>
         /// <param name="topicName">Name of the topic.</param>
-        public void Publish(PubSubMessage e, string topicName)
+        public void Publish(PubSubMessage message, string topicName)
         {
-            this.PublishingChannel.Publish(e, topicName);
+            this.PublishingChannel.Publish(message, topicName);
             this.EventCounter++;
         }
         #endregion
