@@ -17,12 +17,6 @@ namespace PubSubSample.Common.Extensions
         public static T Resolve<T>(this UnityContainer container)
         {
             var returnObject = container.Resolve(typeof(T), string.Empty, null);
-
-            if (!(returnObject is T))
-            {
-                returnObject = null;
-            }
-
             return (T)returnObject;
         }
     }
