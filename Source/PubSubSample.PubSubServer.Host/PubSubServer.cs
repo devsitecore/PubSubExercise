@@ -4,10 +4,7 @@
 
 namespace PubSubSample.PubSubServer
 {
-    using System;
-    using System.Configuration;
     using System.Windows.Forms;
-    using Foundation.Contracts;
     using Foundation.ServiceContracts;
 
     public partial class PubSubServer : Form, IPubSubServerHost
@@ -17,13 +14,11 @@ namespace PubSubSample.PubSubServer
         /// <summary>
         /// Initializes a new instance of the <see cref="PubSubServer"/> class.
         /// </summary>
-        /// <param name="proxyManager">The proxy manager.</param>
-        public PubSubServer(IProxyManager proxyManager)
+        /// <param name="pubSubServicesHostingManager">The PubSub Services Hosting Manager.</param>
+        public PubSubServer(IPubSubServicesHostingManager pubSubServicesHostingManager)
         {
-            this.ProxyManager = proxyManager;
-
             this.InitializeComponent();
-            this.InitServiceHosting();
+            pubSubServicesHostingManager.InitializeServicesHosting(this);
         }
         #endregion
 
@@ -47,60 +42,12 @@ namespace PubSubSample.PubSubServer
                 this.txtLog.Text = value + "\r\n" + this.txtLog.Text;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the proxy manager.
-        /// </summary>
-        /// <value>
-        /// The proxy manager.
-        /// </value>
-        private IProxyManager ProxyManager { get; set; }
         #endregion
 
         #region "IPubSubServerHost Implementation"
         public void Notify(string message)
         {
             this.LogText = message;
-        }
-        #endregion
-
-        #region "Service Hosting"
-
-        /// <summary>
-        /// InitServiceHosting
-        /// </summary>
-        private void InitServiceHosting()
-        {
-            try
-            {
-                this.ProxyManager.Initialize(this);
-                this.HostPublishService();
-                this.HostSubscriptionService();
-            }
-            catch (Exception exp)
-            {
-                this.LogText = exp.Message;
-            }
-        }
-
-        /// <summary>
-        /// Hosts the subscription service.
-        /// </summary>
-        private void HostSubscriptionService()
-        {
-            var endPointAddress = ConfigurationManager.AppSettings["SubEndpointAddress"];
-            this.ProxyManager.HostService<SubscriptionService, ISubscription>(endPointAddress);
-            this.LogText = "Sub Service Hosted...";
-        }
-
-        /// <summary>
-        /// Hosts the publish service.
-        /// </summary>
-        private void HostPublishService()
-        {
-            var endPointAddress = ConfigurationManager.AppSettings["PubEndpointAddress"];
-            this.ProxyManager.HostService<PublishingService, IPublishing>(endPointAddress);
-            this.LogText = "Pub Service Hosted...";
         }
         #endregion
     }

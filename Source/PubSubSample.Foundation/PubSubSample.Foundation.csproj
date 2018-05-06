@@ -65,6 +65,7 @@
     <Compile Include="ServiceContracts\IPublishing.cs" />
     <Compile Include="ServiceContracts\IPubSubFilter.cs" />
     <Compile Include="ServiceContracts\IPubSubServerHost.cs" />
+    <Compile Include="ServiceContracts\IPubSubServicesHostingManager.cs" />
     <Compile Include="ServiceContracts\ISubscription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
