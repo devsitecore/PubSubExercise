@@ -158,7 +158,7 @@ namespace PubSubSample.Publisher
         /// </summary>
         private void CreateProxy()
         {
-            var pubEndpointAddress = ConfigurationManager.AppSettings["EndpointAddress"];
+            var pubEndpointAddress = ConfigurationManager.AppSettings["PubEndpointAddress"];
             this.PublishingChannel = this.ProxyManager.CreateChannel<IPublishing>(pubEndpointAddress);
         }
 

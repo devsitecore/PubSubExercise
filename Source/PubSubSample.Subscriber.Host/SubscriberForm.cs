@@ -166,7 +166,7 @@ namespace PubSubSample.Subscriber
         /// </summary>
         private void CreateProxy()
         {
-            var subEndPoint = ConfigurationManager.AppSettings["EndpointAddress"];
+            var subEndPoint = ConfigurationManager.AppSettings["SubEndpointAddress"];
             var callbackInstance = this;
             this.SubscriptionChannel = this.ProxyManager.CreateChannel<ISubscription>(subEndPoint, ChannelType.Duplex, callbackInstance);
         }
