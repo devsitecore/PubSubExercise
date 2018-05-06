@@ -33,18 +33,25 @@ namespace PubSubSample.Foundation.Base
         /// Initialize Services Hosting
         /// </summary>
         /// <param name="host">The host</param>
-        public virtual void InitializeServicesHosting(IPubSubServerHost host)
+        /// <returns>True if initialization is good</returns>
+        public virtual bool InitializeServicesHosting(IPubSubServerHost host)
         {
+            var initialized = false;
+
             try
             {
                 this.ProxyManager.Initialize(host);
                 this.HostPublishService();
                 this.HostSubscriptionService();
+
+                initialized = true;
             }
             catch (Exception exp)
             {
                 this.ProxyManager.NotifyHost(exp.Message);
             }
+
+            return initialized;
         }
 
         /// <summary>

@@ -38,7 +38,7 @@ namespace PubSubSample.Publisher
 
             this.InitializeComponent();
             this.InitializeFormState();
-            this.CreateProxy();
+            this.CreateChannel();
         }
         #endregion
 
@@ -154,9 +154,9 @@ namespace PubSubSample.Publisher
         }
 
         /// <summary>
-        /// Creates the proxy.
+        /// Creates the proxy channel.
         /// </summary>
-        private void CreateProxy()
+        private void CreateChannel()
         {
             var pubEndpointAddress = ConfigurationManager.AppSettings["PubEndpointAddress"];
             this.PublishingChannel = this.ProxyManager.CreateChannel<IPublishing>(pubEndpointAddress);

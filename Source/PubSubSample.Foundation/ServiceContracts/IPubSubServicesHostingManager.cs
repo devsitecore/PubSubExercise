@@ -10,6 +10,7 @@ namespace PubSubSample.Foundation.ServiceContracts
         /// Initialize Services Hosting
         /// </summary>
         /// <param name="host">The host</param>
-        void InitializeServicesHosting(IPubSubServerHost host);
+        /// <returns>True if initialization is good</returns>
+        bool InitializeServicesHosting(IPubSubServerHost host);
     }
 }

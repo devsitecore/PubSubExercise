@@ -75,7 +75,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\NotNullAttribute.cs" />
     <Compile Include="Contracts\IEncryption.cs" />
     <Compile Include="Encryption\SimpleEncryption.cs" />
     <Compile Include="Enums\Enums.cs" />

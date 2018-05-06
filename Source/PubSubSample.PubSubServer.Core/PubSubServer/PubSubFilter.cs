@@ -8,6 +8,7 @@ namespace PubSubSample.PubSubServer
     using Foundation.Contracts;
     using Foundation.DataContracts;
     using Foundation.ServiceContracts;
+    using System;
 
     /// <summary>
     /// PubSubFilter
@@ -15,6 +16,7 @@ namespace PubSubSample.PubSubServer
     public class PubSubFilter : IPubSubFilter
     {
         #region "Private Members"
+        private readonly Guid reference;
         private readonly IProxyManager proxyManager;
         private Dictionary<string, List<ISubscription>> subscribersList = new Dictionary<string, List<ISubscription>>();
         #endregion
@@ -27,6 +29,7 @@ namespace PubSubSample.PubSubServer
         /// <param name="proxyManager">Proxy Manager</param>
         public PubSubFilter(IProxyManager proxyManager)
         {
+            this.reference = Guid.NewGuid();
             this.proxyManager = proxyManager;
         }
         #endregion

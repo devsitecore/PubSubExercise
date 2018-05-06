@@ -38,9 +38,14 @@ namespace PubSubSample.Common.Unity
         /// <returns>UnityContainer</returns>
         public UnityContainer Initialize()
         {
-            var container = new UnityContainer();
-            container.LoadConfiguration();
-            return this.Container = container;
+            if (this.Container == null)
+            {
+                var container = new UnityContainer();
+                container.LoadConfiguration();
+                this.Container = container;
+            }
+
+            return this.Container;
         }
     }
 }
