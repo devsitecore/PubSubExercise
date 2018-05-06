@@ -15,24 +15,6 @@ namespace PubSubSample.PubSubServer
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     public class PublishingService : BaseService, IPublishing
     {
-        #region "Constructor"
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PublishingService"/> class.
-        /// </summary>
-        /// <param name="pubSubFilter">PubSubFilter</param>
-        public PublishingService(IPubSubFilter pubSubFilter = null)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PublishingService"/> class.
-        /// </summary>
-        public PublishingService()
-        {
-        }
-        #endregion
-
         #region IPublishing Members
 
         /// <summary>

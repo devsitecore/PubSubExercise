@@ -4,11 +4,11 @@
 
 namespace PubSubSample.PubSubServer
 {
+    using System;
     using System.Collections.Generic;
     using Foundation.Contracts;
     using Foundation.DataContracts;
     using Foundation.ServiceContracts;
-    using System;
 
     /// <summary>
     /// PubSubFilter

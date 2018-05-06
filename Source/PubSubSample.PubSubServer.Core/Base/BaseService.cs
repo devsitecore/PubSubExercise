@@ -18,15 +18,6 @@ namespace PubSubSample.PubSubServer.Core.Base
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseService"/> class.
         /// </summary>
-        /// <param name="pubSubFilter">PubSubFilter</param>
-        public BaseService(IPubSubFilter pubSubFilter)
-        {
-            this.PubSubFilter = pubSubFilter;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseService"/> class.
-        /// </summary>
         public BaseService()
         {
             this.PubSubFilter = DependencyInjection.Instance().Container.Resolve<IPubSubFilter>();

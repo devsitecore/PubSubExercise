@@ -39,5 +39,22 @@
             //Make sure that we are able to get back the same plain text
             Assert.AreEqual(plainText, decryptedText);
         }
+
+        /// <summary>
+        /// TestDecryptToString
+        /// </summary>
+        [TestMethod]
+        public void TestDecryptSingleCharStringToString()
+        {
+            IEncryption simpleEncryption = new SimpleEncryption();
+
+            string plainText = "a";
+
+            string encryptedText = simpleEncryption.EncryptToString(plainText);
+            string decryptedText = simpleEncryption.Decrypt(encryptedText);
+
+            //Make sure that we are able to get back the same plain text
+            Assert.AreEqual(plainText, decryptedText);
+        }
     }
 }

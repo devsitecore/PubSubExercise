@@ -320,5 +320,13 @@ namespace PubSubSample.Tests
             Assert.AreEqual(message2, subscriber1.PubSubMessages[2].EventData);
             Assert.AreEqual(message2, subscriber2.PubSubMessages[0].EventData);
         }
+
+        [TestMethod]
+        public void TestDummyReceive()
+        {
+            InitializeServicesHosting();
+            var subscriber = this.container.Resolve<MockSubscriberHost>();
+            subscriber.Receive(null);
+        }
     }
 }

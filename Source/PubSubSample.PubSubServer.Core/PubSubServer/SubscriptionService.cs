@@ -16,25 +16,6 @@ namespace PubSubSample.PubSubServer
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class SubscriptionService : BaseService, ISubscription
     {
-        #region "Constructor"
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SubscriptionService"/> class.
-        /// </summary>
-        /// <param name="pubSubFilter">PubSubFilter</param>
-        public SubscriptionService(IPubSubFilter pubSubFilter = null)
-            : base(pubSubFilter)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SubscriptionService"/> class.
-        /// </summary>
-        public SubscriptionService()
-        {
-        }
-        #endregion
-
         #region ISubscription Members
 
         /// <summary>
@@ -63,7 +44,6 @@ namespace PubSubSample.PubSubServer
         /// <param name="pubSubMessage">Message</param>
         public void Receive(PubSubMessage pubSubMessage)
         {
-            throw new NotImplementedException();
         }
         #endregion
     }

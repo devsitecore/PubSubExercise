@@ -21,6 +21,11 @@ namespace PubSubSample.Tests.Mocking
             this.CreateSubscriptionChannel();
         }
 
+        public void DummyReceive(PubSubMessage pubSubMessage)
+        {
+            this.subscriptionChannel.Receive(pubSubMessage);
+        }
+
         public void Receive(PubSubMessage pubSubMessage)
         {
             this.PubSubMessages.Add(pubSubMessage);
