@@ -1,0 +1,1 @@
+START /B PubSubSample.Publisher\bin\PubSubSample.Publisher.exe

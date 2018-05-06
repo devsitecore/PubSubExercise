@@ -1,4 +1,4 @@
-You can simply run the bat file "0_TestMe.bat"
+You can simply run the bat file "0_Launcher.bat"
 
 It will launch 
 
