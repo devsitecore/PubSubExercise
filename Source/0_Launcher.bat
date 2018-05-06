@@ -1,3 +1,3 @@
-START /B PubSubSample.PubSubServer\bin\PubSubSample.PubSubServer.exe
-START /B PubSubSample.Publisher\bin\PubSubSample.Publisher.exe
-START /B PubSubSample.Subscriber\bin\PubSubSample.Subscriber.exe
+START /B PubSubSample.PubSubServer.Host\bin\PubSubSample.PubSubServer.Host.exe
+START /B PubSubSample.Publisher.Host\bin\PubSubSample.Publisher.Host.exe
+START /B PubSubSample.Subscriber.Host\bin\PubSubSample.Subscriber.Host.exe

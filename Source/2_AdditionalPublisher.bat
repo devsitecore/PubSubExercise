@@ -1,1 +1,1 @@
-START /B PubSubSample.Publisher\bin\PubSubSample.Publisher.exe
+START /B PubSubSample.Publisher.Host\bin\PubSubSample.Publisher.Host.exe

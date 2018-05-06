@@ -4,16 +4,24 @@
 
 /Source/PubSubSample.Common/bin
 /Source/PubSubSample.Foundation/bin
-/Source/PubSubSample.Publisher/bin
-/Source/PubSubSample.PubSubServer/bin
-/Source/PubSubSample.Subscriber/bin
+/Source/PubSubSample.Publisher.Host/bin
+/Source/PubSubSample.PubSubServer.Host/bin
+/Source/PubSubSample.PubSubServer.Core/bin
+/Source/PubSubSample.Subscriber.Host/bin
 /Source/PubSubSample.Tests/bin
 /Source/PubSubSample.Common/obj
 /Source/PubSubSample.Foundation/obj
-/Source/PubSubSample.Publisher/obj
-/Source/PubSubSample.PubSubServer/obj
-/Source/PubSubSample.Subscriber/obj
+/Source/PubSubSample.Publisher.Host/obj
+/Source/PubSubSample.PubSubServer.Host/obj
+/Source/PubSubSample.PubSubServer.Core/obj
+/Source/PubSubSample.Subscriber.Host/obj
 /Source/PubSubSample.Tests/obj
 /Source/packages
 
+*.dll
+*.exe
 *.suo
+/Source/PubSubSample.Publisher.Host/obj/Debug
+/Source/PubSubSample.PubSubServer.Core/bin/Debug
+/Source/PubSubSample.PubSubServer.Core/obj/Debug
+/Source/PubSubSample.Subscriber.Host/bin

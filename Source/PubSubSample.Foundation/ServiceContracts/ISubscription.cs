@@ -33,12 +33,5 @@ namespace PubSubSample.Foundation.Contracts
         /// <param name="topicName">Name of the topic.</param>
         [OperationContract]
         void UnSubscribe(string topicName);
-
-        /// <summary>
-        /// Notifies the specified message.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        [OperationContract]
-        void Notify(PubSubMessage message);
     }
 }

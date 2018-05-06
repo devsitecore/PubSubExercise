@@ -1,1 +1,1 @@
-START /B PubSubSample.Subscriber\bin\PubSubSample.Subscriber.exe
+START /B PubSubSample.Subscriber.Host\bin\PubSubSample.Subscriber.Host.exe

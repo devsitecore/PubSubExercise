@@ -2,13 +2,17 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PubSubSample.Common.Proxy
+namespace PubSubSample.Foundation.Proxy
 {
+    using System;
     using System.ServiceModel;
-    using Enums;
+    using Common.Enums;
+    using ServiceContracts;
 
     public class ProxyManager : IProxyManager
     {
+        protected IPubSubServerHost PubSubServerHost { get; set; }
+
         /// <summary>
         /// Creates the chanel.
         /// </summary>
@@ -53,6 +57,27 @@ namespace PubSubSample.Common.Proxy
             var tcpBinding = new NetTcpBinding(SecurityMode.None);
             serviceHost.AddServiceEndpoint(typeof(Implementation), tcpBinding, endPointAddress);
             serviceHost.Open();
+        }
+
+        /// <summary>
+        /// Initialize the proxy manager to maintain a link between host
+        /// </summary>
+        /// <param name="pubSubServerHost">The server host.</param>
+        public void Initialize(IPubSubServerHost pubSubServerHost)
+        {
+            this.PubSubServerHost = pubSubServerHost;
+        }
+
+        /// <summary>
+        /// Notify host about different messages
+        /// </summary>
+        /// <param name="message">Message for the host</param>
+        public void NotifyHost(string message)
+        {
+            if (this.PubSubServerHost != null)
+            {
+                this.PubSubServerHost.Notify(message);
+            }
         }
     }
 }

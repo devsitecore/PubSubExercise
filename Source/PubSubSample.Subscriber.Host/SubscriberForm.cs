@@ -9,9 +9,9 @@ namespace PubSubSample.Subscriber
     using System.Windows.Forms;
     using Common.Encryption;
     using Common.Enums;
-    using Common.Proxy;
     using Foundation.Contracts;
     using Foundation.DataContracts;
+    using Foundation.ServiceContracts;
 
     /// <summary>
     /// Subscriber
@@ -64,7 +64,7 @@ namespace PubSubSample.Subscriber
 
         private IEncryption SimpleEncryption { get; set; }
 
-        private ISubscription SubscriptionProxy { get; set; }
+        private ISubscription SubscriptionChannel { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the topic.
@@ -103,7 +103,7 @@ namespace PubSubSample.Subscriber
         /// <param name="topicName">Name of the topic.</param>
         public void Subscribe(string topicName)
         {
-            this.SubscriptionProxy.Subscribe(topicName);
+            this.SubscriptionChannel.Subscribe(topicName);
 
             this.txtTopicName.Enabled = false;
             this.btnSubscribe.Enabled = false;
@@ -120,7 +120,7 @@ namespace PubSubSample.Subscriber
             this.btnUnubscribe.Enabled = false;
             this.btnSubscribe.Enabled = true;
 
-            this.SubscriptionProxy.UnSubscribe(topicName);
+            this.SubscriptionChannel.UnSubscribe(topicName);
         }
 
         /// <summary>
@@ -168,7 +168,7 @@ namespace PubSubSample.Subscriber
         {
             var subEndPoint = ConfigurationManager.AppSettings["EndpointAddress"];
             var callbackInstance = this;
-            this.SubscriptionProxy = this.ProxyManager.CreateChannel<ISubscription>(subEndPoint, ChannelType.Duplex, callbackInstance);
+            this.SubscriptionChannel = this.ProxyManager.CreateChannel<ISubscription>(subEndPoint, ChannelType.Duplex, callbackInstance);
         }
         #endregion
 

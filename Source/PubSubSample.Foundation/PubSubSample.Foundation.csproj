@@ -58,10 +58,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServiceContracts\IProxyManager.cs" />
     <Compile Include="DataContracts\PubSubMessage.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Proxy\ProxyManager.cs" />
     <Compile Include="ServiceContracts\IPublishing.cs" />
     <Compile Include="ServiceContracts\IPubSubFilter.cs" />
+    <Compile Include="ServiceContracts\IPubSubServerHost.cs" />
     <Compile Include="ServiceContracts\ISubscription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +75,12 @@
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PubSubSample.Common\PubSubSample.Common.csproj">
+      <Project>{00b4d207-1d93-44c4-a4bc-e4d1d42260be}</Project>
+      <Name>PubSubSample.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

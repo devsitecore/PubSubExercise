@@ -7,6 +7,7 @@ namespace PubSubSample.PubSubServer
     using System.Collections.Generic;
     using Foundation.Contracts;
     using Foundation.DataContracts;
+    using Foundation.ServiceContracts;
 
     /// <summary>
     /// PubSubFilter
@@ -14,8 +15,14 @@ namespace PubSubSample.PubSubServer
     public class PubSubFilter : IPubSubFilter
     {
         #region "Private Members"
+        private readonly IProxyManager proxyManager;
         private Dictionary<string, List<ISubscription>> subscribersList = new Dictionary<string, List<ISubscription>>();
         #endregion
+
+        public PubSubFilter(IProxyManager proxyManager)
+        {
+            this.proxyManager = proxyManager;
+        }
 
         #region "Private Properties"
 
@@ -46,6 +53,8 @@ namespace PubSubSample.PubSubServer
         /// <param name="topic">The topic.</param>
         public void Publish(PubSubMessage e, string topic)
         {
+            this.proxyManager.NotifyHost(string.Format("New message is published for the topic {0}.", topic));
+
             var subscribers = this.GetSubscribers(topic);
 
             if (subscribers != null)
@@ -70,6 +79,8 @@ namespace PubSubSample.PubSubServer
         /// <param name="subscriberCallbackReference">The subscriber callback reference.</param>
         public void AddSubscriber(string topic, ISubscription subscriberCallbackReference)
         {
+            this.proxyManager.NotifyHost(string.Format("New subscriber for the topic {0}.", topic));
+
             lock (typeof(PubSubFilter))
             {
                 if (this.SubscribersList.ContainsKey(topic))
@@ -95,6 +106,8 @@ namespace PubSubSample.PubSubServer
         /// <param name="subscriberCallbackReference">The subscriber callback reference.</param>
         public void RemoveSubscriber(string topic, ISubscription subscriberCallbackReference)
         {
+            this.proxyManager.NotifyHost(string.Format("Subscriber removed from the topic {0}.", topic));
+
             lock (typeof(PubSubFilter))
             {
                 if (this.SubscribersList.ContainsKey(topic))

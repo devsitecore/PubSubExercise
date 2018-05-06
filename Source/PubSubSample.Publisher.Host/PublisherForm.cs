@@ -9,10 +9,11 @@ namespace PubSubSample.Publisher
     using System.Windows.Forms;
     using Common.Encryption;
     using Common.Extensions;
-    using Common.Proxy;
     using Common.Unity;
     using Foundation.Contracts;
     using Foundation.DataContracts;
+    using Foundation.Proxy;
+    using Foundation.ServiceContracts;
 
     /// <summary>
     /// PublisherForm
@@ -49,7 +50,7 @@ namespace PubSubSample.Publisher
         /// <value>
         /// The publishing proxy.
         /// </value>
-        private IPublishing PublishingProxy { get; set; }
+        private IPublishing PublishingChannel { get; set; }
 
         /// <summary>
         /// Gets or sets the simple encryption.
@@ -135,7 +136,7 @@ namespace PubSubSample.Publisher
         /// <param name="topicName">Name of the topic.</param>
         public void Publish(PubSubMessage e, string topicName)
         {
-            this.PublishingProxy.Publish(e, topicName);
+            this.PublishingChannel.Publish(e, topicName);
             this.EventCounter++;
         }
         #endregion
@@ -158,7 +159,7 @@ namespace PubSubSample.Publisher
         private void CreateProxy()
         {
             var pubEndpointAddress = ConfigurationManager.AppSettings["EndpointAddress"];
-            this.PublishingProxy = this.ProxyManager.CreateChannel<IPublishing>(pubEndpointAddress);
+            this.PublishingChannel = this.ProxyManager.CreateChannel<IPublishing>(pubEndpointAddress);
         }
 
         /// <summary>

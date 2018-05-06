@@ -7,10 +7,10 @@ namespace PubSubSample.PubSubServer
     using System;
     using System.Configuration;
     using System.Windows.Forms;
-    using Common.Proxy;
     using Foundation.Contracts;
+    using Foundation.ServiceContracts;
 
-    public partial class PubSubServer : Form
+    public partial class PubSubServer : Form, IPubSubServerHost
     {
         #region "Constructors"
 
@@ -57,6 +57,13 @@ namespace PubSubSample.PubSubServer
         private IProxyManager ProxyManager { get; set; }
         #endregion
 
+        #region "IPubSubServerHost Implementation"
+        public void Notify(string message)
+        {
+            this.LogText = message;
+        }
+        #endregion
+
         #region "Service Hosting"
 
         /// <summary>
@@ -66,6 +73,7 @@ namespace PubSubSample.PubSubServer
         {
             try
             {
+                this.ProxyManager.Initialize(this);
                 this.HostPublishService();
                 this.HostSubscriptionService();
             }

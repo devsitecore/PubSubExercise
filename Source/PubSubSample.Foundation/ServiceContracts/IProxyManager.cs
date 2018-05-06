@@ -2,10 +2,10 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PubSubSample.Common.Proxy
+namespace PubSubSample.Foundation.ServiceContracts
 {
     using System.ServiceModel;
-    using Enums;
+    using Common.Enums;
 
     public interface IProxyManager
     {
@@ -28,5 +28,17 @@ namespace PubSubSample.Common.Proxy
         /// <param name="endPointAddress">The end point address.</param>
         /// <param name="securityMode">The security mode.</param>
         void HostService<Service, Implementation>(string endPointAddress, SecurityMode securityMode = SecurityMode.None);
+
+        /// <summary>
+        /// Notify host about different messages
+        /// </summary>
+        /// <param name="message">Message for the host</param>
+        void NotifyHost(string message);
+
+        /// <summary>
+        /// Initialize the proxy manager to maintain a link between host
+        /// </summary>
+        /// <param name="pubSubServerHost">The server host.</param>
+        void Initialize(IPubSubServerHost pubSubServerHost);
     }
 }
