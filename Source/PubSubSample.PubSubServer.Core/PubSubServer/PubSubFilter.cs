@@ -19,10 +19,17 @@ namespace PubSubSample.PubSubServer
         private Dictionary<string, List<ISubscription>> subscribersList = new Dictionary<string, List<ISubscription>>();
         #endregion
 
+        #region "Constructor"
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PubSubFilter"/> class.
+        /// </summary>
+        /// <param name="proxyManager">Proxy Manager</param>
         public PubSubFilter(IProxyManager proxyManager)
         {
             this.proxyManager = proxyManager;
         }
+        #endregion
 
         #region "Private Properties"
 
@@ -67,6 +74,7 @@ namespace PubSubSample.PubSubServer
                     }
                     catch
                     {
+                        // This normally happens when the subscriber is closed without un-subscribing
                     }
                 }
             }
