@@ -6,6 +6,7 @@ namespace PubSubSample.PubSubServer
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using Foundation.Contracts;
     using Foundation.DataContracts;
     using Foundation.ServiceContracts;
@@ -71,14 +72,7 @@ namespace PubSubSample.PubSubServer
             {
                 foreach (var subscriber in subscribers)
                 {
-                    try
-                    {
-                        subscriber.Receive(message);
-                    }
-                    catch
-                    {
-                        // This normally happens when the subscriber is closed without un-subscribing
-                    }
+                    this.NotifySubscriber(subscriber, message);
                 }
             }
         }
@@ -133,6 +127,24 @@ namespace PubSubSample.PubSubServer
         #endregion
 
         #region "Private Methods"
+
+        /// <summary>
+        /// NotifySubscriber
+        /// </summary>
+        /// <param name="subscriber">The subscriber</param>
+        /// <param name="message">message</param>
+        [ExcludeFromCodeCoverage]
+        private void NotifySubscriber(ISubscription subscriber, PubSubMessage message)
+        {
+            try
+            {
+                subscriber.Receive(message);
+            }
+            catch
+            {
+                // This normally happens when the subscriber is closed without un-subscribing
+            }
+        }
 
         /// <summary>
         /// Gets the subscribers.

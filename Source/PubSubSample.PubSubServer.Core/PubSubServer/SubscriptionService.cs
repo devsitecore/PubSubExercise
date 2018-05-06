@@ -4,7 +4,7 @@
 
 namespace PubSubSample.PubSubServer
 {
-    using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.ServiceModel;
     using Core.Base;
     using Foundation.Contracts;
@@ -42,6 +42,7 @@ namespace PubSubSample.PubSubServer
         /// Receive the pub sub message
         /// </summary>
         /// <param name="pubSubMessage">Message</param>
+        [ExcludeFromCodeCoverage]
         public void Receive(PubSubMessage pubSubMessage)
         {
         }
