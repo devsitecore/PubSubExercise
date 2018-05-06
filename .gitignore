@@ -27,3 +27,5 @@
 /Source/PubSubSample.Subscriber.Host/bin
 /Source/.vs
 /.vs
+/Source/PubSubSample.PubSubServer.Console/bin/Debug
+/Source/PubSubSample.PubSubServer.Console/obj/Debug

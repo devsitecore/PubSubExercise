@@ -34,6 +34,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Publisher", "Publisher", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Subscriber", "Subscriber", "{C8EA2583-A940-4E61-99D0-259BAB8E0823}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubSample.PubSubServer.Console", "PubSubSample.PubSubServer.Console\PubSubSample.PubSubServer.Console.csproj", "{659DF7BB-DD27-4A7E-A5B3-B77A99BAA589}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,12 @@ Global
 		{8DE54060-C339-42FD-B642-C84C908973A3}.Jay's Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DE54060-C339-42FD-B642-C84C908973A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DE54060-C339-42FD-B642-C84C908973A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{659DF7BB-DD27-4A7E-A5B3-B77A99BAA589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{659DF7BB-DD27-4A7E-A5B3-B77A99BAA589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{659DF7BB-DD27-4A7E-A5B3-B77A99BAA589}.Jay's Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{659DF7BB-DD27-4A7E-A5B3-B77A99BAA589}.Jay's Debug|Any CPU.Build.0 = Debug|Any CPU
+		{659DF7BB-DD27-4A7E-A5B3-B77A99BAA589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{659DF7BB-DD27-4A7E-A5B3-B77A99BAA589}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +104,7 @@ Global
 		{0BBE8719-D496-4500-AE80-4DC457753E41} = {AD04FF4C-D032-438A-9BAB-6BAA2C671755}
 		{00B4D207-1D93-44C4-A4BC-E4D1D42260BE} = {303131E4-25CA-4BD5-B938-4B10CE6278A6}
 		{8DE54060-C339-42FD-B642-C84C908973A3} = {405A7CB3-77A5-4C19-AB72-76CCEDE6E7DC}
+		{659DF7BB-DD27-4A7E-A5B3-B77A99BAA589} = {405A7CB3-77A5-4C19-AB72-76CCEDE6E7DC}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = PubSubSample.vsmdi
