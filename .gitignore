@@ -32,3 +32,7 @@
 /Source/PubSubSample.PubSubServer.Console/bin/Release
 /Source/PubSubSample.PubSubServer.Console/obj/Release
 *.coverage
+/Source/PubSubSample.Publisher/obj/Debug
+/Source/PubSubSample.PubSubServer/obj/Debug
+/Source/PubSubSample.Subscriber/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/Source/PubSubSample.Subscriber/obj/Debug
